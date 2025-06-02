@@ -17,7 +17,7 @@ import {
 export function DateRangePicker({ className }) {
   const [date, setDate] = useState({
     from: new Date(),
-    to: addDays(new Date(2022, 0, 20), 20),
+    to: addDays(new Date(), 30),
   })
 
   return (

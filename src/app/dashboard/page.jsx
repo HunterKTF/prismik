@@ -13,13 +13,23 @@ export default function Page() {
         <header className="flex h-16 shrink-0 items-center gap-2">
           <NavBar />
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
-            <div className="bg-muted/50 aspect-video rounded-xl" />
+        <div className="w-full h-full">
+          <div className="w-full h-[20%] grid grid-flow-col grid-cols-4 px-4 py-1 gap-2">
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">KPI 1</div>
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">KPI 2</div>
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">KPI 3</div>
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">KPI 4</div>
           </div>
-          <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+          <div className="w-full h-[50%] grid grid-flow-col grid-cols-4 px-4 py-1 gap-2">
+            <div className="w-full h-full flex justify-center items-center row-span-2 bg-black/10 rounded-xl">Revenue</div>
+            <div className="w-full h-full flex justify-center items-center col-span-2 bg-black/10 rounded-xl">Debt to Equity Ratio</div>
+            <div className="w-full h-full flex justify-center items-center col-span-2 bg-black/10 rounded-xl">Interest coverage Ratio</div>
+            <div className="w-full h-full flex justify-center items-center row-span-2 bg-black/10 rounded-xl">Profitability</div>
+          </div>
+          <div className="w-full h-[30%] grid grid-flow-col grid-cols-2 px-4 pt-1 pb-4 gap-2">
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">Efficiency</div>
+            <div className="w-full h-full flex justify-center items-center bg-black/10 rounded-xl">Liquidity</div>
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>
