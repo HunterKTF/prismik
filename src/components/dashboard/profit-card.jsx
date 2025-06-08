@@ -67,7 +67,7 @@ const invoices = [
 
 export function TableDemo() {
   return (
-    <Card className="w-full h-[45vh] flex flex-col overflow-hidden shadow-none border-none">
+    <Card className="w-full h-[44vh] flex flex-col overflow-hidden shadow-none border-none">
       <CardHeader>
         <CardTitle className="text-xl">Profitability</CardTitle>
         <CardDescription></CardDescription>
