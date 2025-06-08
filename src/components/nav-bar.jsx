@@ -55,7 +55,6 @@ export function NavBar() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <DateRangePicker />
         <Button className="text-sm">
           <Download />
           Download CSV
