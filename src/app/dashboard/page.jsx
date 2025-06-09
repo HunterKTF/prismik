@@ -1,3 +1,5 @@
+import { getMetrics } from "@/actions/metrics";
+
 import { AppSidebar } from "@/components/app-sidebar"
 import { NavBar } from "@/components/nav-bar";
 import {
@@ -5,7 +7,7 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import { 
+import {
   Store,
   Wallet,
   ReceiptText,
@@ -19,42 +21,44 @@ import { LiquidityCard } from "@/components/dashboard/liquidity-card";
 import { ReceivableCard } from "@/components/dashboard/receivable-card";
 import { ExpensesCard } from "@/components/dashboard/expenses-card";
 
-const data = [
-  {
-    title: "Net Sales",
-    value: "100.00",
-    badge: "50%",
-    icon: <Store size={20} />,
-    past: "+12",
-    ratio: false,
-  },
-  {
-    title: "Revenue",
-    value: "200.00",
-    badge: "30%",
-    icon: <Wallet size={20} />,
-    past: "+8",
-    ratio: false,
-  },
-  {
-    title: "Debt to Equity Ratio",
-    value: "1.5",
-    badge: "20%",
-    icon: <ReceiptText size={20} />,
-    past: "-0.5",
-    ratio: true,
-  },
-  {
-    title: "Interest Coverage Ratio",
-    value: "3.0",
-    badge: "10%",
-    icon: <Banknote size={20} />,
-    past: "+0.2",
-    ratio: true,
-  }
-]
+export default async function Page() {
+  const reports = await getMetrics();
 
-export default function Page() {
+  const data = [
+    {
+      title: "Net Sales",
+      value: reports.curr_metrics["Total Revenue"],
+      badge: "50%",
+      icon: <Store size={20} />,
+      past: "+12",
+      ratio: false,
+    },
+    {
+      title: "Inventory",
+      value: reports.curr_metrics["Inventory"],
+      badge: "30%",
+      icon: <Wallet size={20} />,
+      past: "+8",
+      ratio: false,
+    },
+    {
+      title: "Operating Cash Flow",
+      value: reports.curr_metrics["Operating Cash Flow"],
+      badge: "20%",
+      icon: <ReceiptText size={20} />,
+      past: "-0.5",
+      ratio: false,
+    },
+    {
+      title: "Gross Profit",
+      value: reports.curr_metrics["Gross Profit"],
+      badge: "10%",
+      icon: <Banknote size={20} />,
+      past: "+0.2",
+      ratio: false,
+    }
+  ]
+
   return (
     <SidebarProvider>
       <AppSidebar />
