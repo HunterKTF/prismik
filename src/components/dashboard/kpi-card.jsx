@@ -2,19 +2,34 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 import { TrendingUp, TrendingDown } from "lucide-react"
 import { ChartNoAxesColumnIncreasing } from "lucide-react"
 import { ChartNoAxesColumnDecreasing } from "lucide-react"
 import { ChevronRightIcon } from "lucide-react"
 
-export function KPICard({ title, value, badge, icon, past, ratio }) {
+export function KPICard({ title, value, badge, icon, past, ratio, onSelectMetric, data }) {
   return (
     <div className="w-full h-full bg-white rounded-xl flex flex-col justify-between border py-2 px-4 shadow-sm">
       <div className="flex justify-between items-center">
         <h3 className="text-md font-medium">{title}</h3>
-        <div className="p-3 bg-slate-700 rounded-md">
-          <p className="text-sm text-slate-100">{icon}</p>
+        <div className="w-10 h-10">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-sm text-slate-100 w-full h-full flex items-center justify-center bg-slate-700 rounded-md">{icon}</DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="max-h-[300px] w-[200px] overflow-y-auto">
+              {data.map((option, index) => (
+                <DropdownMenuItem key={index}>{option.title}</DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       <div className="flex justify-start items-end gap-4">

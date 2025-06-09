@@ -1,4 +1,8 @@
-import { getMetrics } from "@/actions/metrics";
+'use client'
+
+import { useState, useEffect } from "react"
+
+import { dataCards } from "@/components/dashboard/metrics-data";
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { NavBar } from "@/components/nav-bar";
@@ -7,13 +11,6 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import {
-  Store,
-  Wallet,
-  ReceiptText,
-  Banknote,
-} from "lucide-react";
-
 import { KPICard } from "@/components/dashboard/kpi-card";
 import { RevenueChart } from "@/components/dashboard/revenue-chart";
 import { TableDemo } from "@/components/dashboard/profit-card";
@@ -21,43 +18,23 @@ import { LiquidityCard } from "@/components/dashboard/liquidity-card";
 import { ReceivableCard } from "@/components/dashboard/receivable-card";
 import { ExpensesCard } from "@/components/dashboard/expenses-card";
 
-export default async function Page() {
-  const reports = await getMetrics();
+export default function Page() {
+  const [cardData, setCardData] = useState([])
 
-  const data = [
-    {
-      title: "Net Sales",
-      value: reports.curr_metrics["Total Revenue"],
-      badge: "50%",
-      icon: <Store size={20} />,
-      past: "+12",
-      ratio: false,
-    },
-    {
-      title: "Inventory",
-      value: reports.curr_metrics["Inventory"],
-      badge: "30%",
-      icon: <Wallet size={20} />,
-      past: "+8",
-      ratio: false,
-    },
-    {
-      title: "Operating Cash Flow",
-      value: reports.curr_metrics["Operating Cash Flow"],
-      badge: "20%",
-      icon: <ReceiptText size={20} />,
-      past: "-0.5",
-      ratio: false,
-    },
-    {
-      title: "Gross Profit",
-      value: reports.curr_metrics["Gross Profit"],
-      badge: "10%",
-      icon: <Banknote size={20} />,
-      past: "+0.2",
-      ratio: false,
+  useEffect(() => {
+    async function fetchData() {
+      const result = await dataCards();
+      setCardData(result);
     }
-  ]
+    fetchData()
+  }, [])
+
+  // Handler to change a specific card's metric
+  const updateCardMetric = (index, newMetricData) => {
+    setCardData(prev =>
+      prev.map((item, i) => (i === index ? { ...item, ...newMetricData } : item))
+    )
+  }
 
   return (
     <SidebarProvider>
@@ -68,7 +45,7 @@ export default async function Page() {
         </header>
         <div className="w-full h-full">
           <div className="w-full h-[20%] grid grid-flow-col grid-cols-4 px-4 py-1 gap-2">
-            {data.map((item, index) => (
+            {cardData.slice(0,4).map((item, index) => (
               <KPICard
                 key={index}
                 title={item.title}
@@ -77,6 +54,8 @@ export default async function Page() {
                 icon={item.icon}
                 past={item.past}
                 ratio={item.ratio}
+                onSelectMetric={(newMetric) => updateCardMetric(index, newMetric)}
+                data={cardData}
               />
             ))}
           </div>

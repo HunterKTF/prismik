@@ -5,6 +5,7 @@ import { useState } from "react"
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -71,7 +72,7 @@ export function RevenueChart() {
         <CardTitle className="flex items-center justify-between">
           <h1 className="text-xl">Revenue and Growth</h1>
           <Select onValueChange={(value) => setChart(value)} value={chart}>
-            <SelectTrigger className="w-[180px] text-sm font-light">
+            <SelectTrigger className="w-[200px] text-sm px-4 py-0 font-light">
               <SelectValue placeholder="Select a chart" />
             </SelectTrigger>
             <SelectContent>
