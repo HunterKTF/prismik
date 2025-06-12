@@ -26,7 +26,7 @@ export function KPICard({ title, value, badge, icon, past, ratio, onSelectMetric
             <DropdownMenuTrigger className="text-sm text-slate-100 w-full h-full flex items-center justify-center bg-slate-700 rounded-md">{icon}</DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="max-h-[300px] w-[200px] overflow-y-auto">
               {data.map((option, index) => (
-                <DropdownMenuItem key={index}>{option.title}</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onSelectMetric(option)} key={index}>{option.title}</DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
