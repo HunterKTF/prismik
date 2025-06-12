@@ -2,24 +2,16 @@
 
 import * as React from "react"
 import {
-  ArrowUpDown,
   AudioWaveform,
   Banknote,
   Blocks,
-  BookOpen,
-  Bot,
   CircleArrowOutUpRight,
   Command,
-  Frame,
   GalleryVerticalEnd,
   LayoutDashboard,
   Landmark,
   LifeBuoy,
-  Map,
-  PieChart,
-  Send,
-  Settings2,
-  SquareTerminal,
+  Network,
   TableProperties
 } from "lucide-react"
 
@@ -62,64 +54,69 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#dashboard",
+      url: "/dashboard",
       icon: LayoutDashboard,
       items: [
         {
           title: "Revenue",
-          url: "#sec1",
+          url: "/dashboard/revenue",
         },
         {
           title: "Profitability",
-          url: "#sec2",
+          url: "/dashboard/profitability",
         },
         {
           title: "Efficiency",
-          url: "#sec3",
+          url: "/dashboard/efficiency",
         },
         {
           title: "Liquidity",
-          url: "#sec4",
+          url: "/dashboard/liquidity",
         },
         {
           title: "Leverage",
-          url: "#sec5",
+          url: "/dashboard/leverage",
         },
       ],
     },
     {
       title: "Cashflow",
-      url: "#cashflow",
+      url: "/cashflow",
       icon: CircleArrowOutUpRight,
       items: [
         {
           title: "Operations",
-          url: "#cash1",
+          url: "/cashflow/operations",
         },
         {
           title: "Investing",
-          url: "#cash2",
+          url: "/cashflow/investing",
         },
         {
           title: "Financing",
-          url: "#cash3",
+          url: "/cashflow/financing",
         },
       ],
     },
     {
       title: "Receivables & Debt",
-      url: "#rnd",
+      url: "/receivables",
       icon: Banknote,
     },
     {
       title: "Expense Breakdown",
-      url: "#rnd",
+      url: "/expenses",
       icon: Blocks,
     },
     {
       title: "Economic Benchmark",
-      url: "#economics",
+      url: "/econ_benchmarks",
       icon: Landmark,
+    },
+    {
+      title: "Pretax ROCE",
+      url: "/pretax_roce",
+      icon: Network,
     },
   ],
   navSecondary: [
