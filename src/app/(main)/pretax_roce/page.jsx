@@ -13,6 +13,8 @@ export default async function Page() {
   // }
 
   return (
-    <PretaxRoceContainer />
+    <div className='w-full h-full'>
+      <PretaxRoceContainer />
+    </div>
   );
 }
