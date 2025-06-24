@@ -38,10 +38,10 @@ const initialNodes = [
   {
     id: '2',
     type: 'customNode',
-    position: { x: 350, y: -150 },
+    position: { x: 350, y: -100 },
     data: {
       collapsed: true,
-      title: 'CTO',
+      title: 'ID - 2',
       description: 'Technology',
       value: 88,
       icon: 'money',
@@ -53,10 +53,146 @@ const initialNodes = [
   {
     id: '3',
     type: 'customNode',
-    position: { x: 350, y: 150 },
+    position: { x: 350, y: 100 },
     data: {
       collapsed: true,
-      title: 'CFO',
+      title: 'ID - 3',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true,
+      children: ['6', '7'], // 👈 Add this line
+    },
+  },
+  {
+    id: '4',
+    type: 'customNode',
+    position: { x: 350, y: -265 },
+    data: {
+      collapsed: true,
+      title: 'ID - 4',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '5',
+    type: 'customNode',
+    position: { x: 350, y: 265 },
+    data: {
+      collapsed: true,
+      title: 'ID - 5',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '6',
+    type: 'customNode',
+    position: { x: 700, y: 100 },
+    data: {
+      collapsed: true,
+      title: 'ID - 6',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '7',
+    type: 'customNode',
+    position: { x: 700, y: 265 },
+    data: {
+      collapsed: true,
+      title: 'ID - 7',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '8',
+    type: 'customNode',
+    position: { x: 700, y: -265 },
+    data: {
+      collapsed: true,
+      title: 'ID - 8',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '9',
+    type: 'customNode',
+    position: { x: 700, y: -430 },
+    data: {
+      collapsed: true,
+      title: 'ID - 9',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '10',
+    type: 'customNode',
+    position: { x: 1050, y: -430 },
+    data: {
+      collapsed: true,
+      title: 'ID - 10',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '11',
+    type: 'customNode',
+    position: { x: 1050, y: -595 },
+    data: {
+      collapsed: true,
+      title: 'ID - 11',
+      description: 'Finance',
+      value: 92,
+      icon: 'money',
+      badgeColor: 'bg-slate-300',
+      extra: { kpi: 'Debt Ratio' },
+      unit: true
+    },
+  },
+  {
+    id: '12',
+    type: 'customNode',
+    position: { x: 1400, y: -595 },
+    data: {
+      collapsed: true,
+      title: 'ID - 12',
       description: 'Finance',
       value: 92,
       icon: 'money',
@@ -68,8 +204,9 @@ const initialNodes = [
 ]
 
 const initialEdges = [
-  { id: 'e1-2', source: '2', target: '1', type: 'smoothstep' },
+  { id: 'e1-2', source: '1', target: '2', type: 'smoothstep' },
   { id: 'e1-3', source: '1', target: '3', type: 'smoothstep' },
+  { id: 'e3-6', source: '3', target: '6', type: 'smoothstep' },
 ]
 
 export default function PretaxRoceContainer() {

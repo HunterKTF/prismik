@@ -37,11 +37,6 @@ export default function CustomNode({ data }) {
         )}
 
       </CardContent>
-      <CardFooter>
-        <Button onClick={data.onToggle} size="sm" className="mt-2 w-full">
-          {data.collapsed ? 'Collapse' : 'Expand'}
-        </Button>
-      </CardFooter>
 
       <Handle type="source" position={Position.Bottom} className="w-3 h-3 bg-black" />
     </Card >
