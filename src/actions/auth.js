@@ -6,7 +6,8 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 
 export async function login(formData) {
-  const supabase = await createClient()
+  const supabase = await createClient();
+  console.log(formData)
 
   // type-casting here for convenience
   // in practice, you should validate your inputs
@@ -14,8 +15,10 @@ export async function login(formData) {
     email: formData.get('email'),
     password: formData.get('password'),
   }
+  console.log(data)
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const { error } = await supabase.auth.signInWithPassword(data);
+  console.log(error)
 
   if (error) {
     redirect('/error')
